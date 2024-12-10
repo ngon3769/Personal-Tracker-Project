@@ -37,3 +37,7 @@ For this, I needed to setup app routes with methods that actually interacted wit
 For each page/route, I also created HTML templates that would be dynamically populated when the user clicks on a certain entry.
 
 Once I had verified that all the functionality worked as expected, I revamped the UI and added CSS to improve the look and feel of the frontend. 
+
+To start the webapp, run this command in the terminal of the project folder:
+
+`python run.py`
