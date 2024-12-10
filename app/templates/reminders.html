@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Reminders for Assignment ID {{ assignment_id }}</h1>
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Date</th>
+            <th>Message</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for reminder in reminders %}
+        <tr>
+            <td>{{ reminder['reminder_id'] }}</td>
+            <td>{{ reminder['reminder_date'] }}</td>
+            <td>{{ reminder['reminder_message'] }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

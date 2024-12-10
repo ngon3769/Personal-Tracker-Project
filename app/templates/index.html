@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="homepage">
+    <!-- Hero Section -->
+    <div class="hero">
+        <h1>Welcome to Your Personal Tracker!</h1>
+        <p>Stay organized and ahead of your deadlines with ease.</p>
+    </div>
+
+    <!-- Quick Stats Section -->
+    <div class="stats">
+        <div class="stat-card">
+            <h2>{{ courses_count }}</h2>
+            <p>Courses</p>
+        </div>
+        <div class="stat-card">
+            <h2>{{ assignments_count }}</h2>
+            <p>Assignments</p>
+        </div>
+        <div class="stat-card">
+            <h2>{{ exams_count }}</h2>
+            <p>Exams</p>
+        </div>
+    </div>
+
+    <!-- Quick Links Section -->
+    <div class="quick-links">
+        <h2>Quick Links</h2>
+        <div class="links">
+            <a href="{{ url_for('app.view_courses') }}" class="quick-link">View Courses</a>
+            <a href="{{ url_for('app.add_course') }}" class="quick-link">Add Course</a>
+            <a href="{{ url_for('app.view_assignments', course_id=1) }}" class="quick-link">View Assignments</a>
+        </div>
+    </div>
+
+    <!-- Upcoming Deadlines Section -->
+    <div class="upcoming">
+        <h2>Upcoming Deadlines</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Type</th>
+                    <th>Title</th>
+                    <th>Due Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for deadline in upcoming_deadlines %}
+                <tr>
+                    <td>{{ deadline['type'] }}</td>
+                    <td>{{ deadline['title'] }}</td>
+                    <td>{{ deadline['due_date'] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

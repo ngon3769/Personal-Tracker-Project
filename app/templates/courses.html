@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>All Courses</h1>
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Term</th>
+            <th>Credits</th>
+            <th>Meeting Times</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for course in courses %}
+        <tr>
+            <td>{{ course['course_id'] }}</td>
+            <td>{{ course['course_name'] }}</td>
+            <td>{{ course['term'] }}</td>
+            <td>{{ course['credits'] }}</td>
+            <td>{{ course['meeting_times'] }}</td>
+            <td>
+                <div class="actions">
+                    <a href="{{ url_for('app.view_assignments', course_id=course['course_id']) }}" class="action-btn">
+                        <i class="fas fa-tasks"></i> Assignments
+                    </a>
+                    <a href="{{ url_for('app.view_resources', course_id=course['course_id']) }}" class="action-btn">
+                        <i class="fas fa-folder"></i> Resources
+                    </a>
+                    <a href="{{ url_for('app.view_exams', course_id=course['course_id']) }}" class="action-btn">
+                        <i class="fas fa-file-alt"></i> Exams
+                    </a>
+                    <a href="{{ url_for('app.add_assignment', course_id=course['course_id']) }}" class="action-btn">
+                        <i class="fas fa-plus-circle"></i> Add Assignment
+                    </a>
+                    <a href="{{ url_for('app.add_resource', course_id=course['course_id']) }}" class="action-btn">
+                        <i class="fas fa-upload"></i> Add Resource
+                    </a>
+                    <a href="{{ url_for('app.add_exam', course_id=course['course_id']) }}" class="action-btn">
+                        <i class="fas fa-plus-square"></i> Add Exam
+                    </a>
+                </div>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

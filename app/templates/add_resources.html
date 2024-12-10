@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Add Resource for Course ID {{ course_id }}</h1>
+<form method="POST" action="{{ url_for('app.add_resource', course_id=course_id) }}">
+    <label for="resource_type">Resource Type:</label>
+    <input type="text" id="resource_type" name="resource_type" placeholder="e.g., Video, Document" required><br>
+
+    <label for="description">Description:</label>
+    <textarea id="description" name="description" required></textarea><br>
+
+    <label for="link">Link:</label>
+    <input type="url" id="link" name="link" required><br>
+
+    <button type="submit">Add Resource</button>
+</form>
+{% endblock %}

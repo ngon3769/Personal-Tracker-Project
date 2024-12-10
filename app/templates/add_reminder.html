@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Add Reminder for Assignment ID {{ assignment_id }}</h1>
+<form method="POST" action="{{ url_for('app.add_reminder', assignment_id=assignment_id) }}">
+    <label for="reminder_date">Reminder Date (YYYY-MM-DD HH:MM:SS):</label>
+    <input type="datetime-local" id="id" name="reminder_date" required><br>
+
+    <label for="reminder_message">Message:</label>
+    <textarea id="reminder_message" name="reminder_message" required></textarea><br>
+
+    <button type="submit">Add Reminder</button>
+</form>
+{% endblock %}
